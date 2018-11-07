@@ -1,12 +1,18 @@
-- name: Create project
-  oc:
-    state: present
-    inline:
-      host: master.qidc.local
-      port: 443
-      kind: ProjectRequest
-      metadata:
-        name: ansibletestproject
-      displayName: Ansible Test Project
-      description: This project was created using Ansible
-    token: MbWipTorrVtCbufb5vQFE-LMw2A6vLWcWm1LiyKt5Ns
+- name: Create Project
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  become: false
+  tasks:
+    - name: Create project
+      oc:
+        state: present
+        inline:
+          host: master.qidc.local
+          port: 443
+          kind: ProjectRequest
+          metadata:
+            name: ansibletestproject
+          displayName: Ansible Test Project
+          description: This project was created using Ansible
+        token: MbWipTorrVtCbufb5vQFE-LMw2A6vLWcWm1LiyKt5Ns
