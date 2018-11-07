@@ -1,0 +1,9 @@
+- name: Create Project
+  hosts: master.qidc.sys
+  connection: remote
+  user: ocp
+  gather_facts: false
+  become: yes
+  tasks:
+    - name: Create project
+      local_action: oc --config=~/.kube/admin.kubeconfig new-project testproject2
